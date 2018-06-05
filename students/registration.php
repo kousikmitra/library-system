@@ -1,3 +1,51 @@
+<?php
+session_start();
+if(isset($_POST['submit'])) {
+    include_once "./includes/dbconnection.php";
+    
+    $sid = $_POST['id'];
+    $sname = $_POST['name'];
+    $semail = $_POST['email'];
+    $sphone = $_POST['phone'];
+    $sdept = $_POST['department'];
+    $sregno = $_POST['reg_no'];
+    $sregyear = $_POST['reg_year'];
+    $spassword = $_POST['password'];
+
+    if($sid != ""
+        and $sname != ""
+        and $semail != ""
+        and $sphone != ""
+        and $sdept != ""
+        and $sregno != ""
+        and $sregyear != ""
+        and $spassword != ""
+        ) {
+
+            $sql = "INSERT INTO student VALUES ('$sid', '$sname', '$semail', '$spassword', '$sphone',
+                        '$sdept', '$sregno', '$sregyear')";
+            
+            if($conn->query($sql)){
+                echo "<script>alert('Registration Completed !');</script>";
+            } else {
+                echo "<script>alert('Registration Failed !;</script>";
+                $_SESSION['err_msg'] = $conn->error;
+            }
+
+        } else {
+            echo "<script>alert('Please Fill The Form!');</script>";
+            $_SESSION['err_msg'] = "Please Fill The Form!";
+
+        }
+
+
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,16 +71,53 @@
       </div>
       <div class="content">
           <div class="registration-div">
-              <form action="#" class="registration-form">
+              <form action="registration.php" method="post" class="registration-form">
                   <fieldset style="border: 1px solid #007BFF; padding: 20px;">
-                      <legend style="width: auto;">New Registration</legend>
+                      <legend style="width: auto; padding: 10px;">New Registration</legend>
+                      <?php
+                      if($_SESSION['err_msg'] != "")
+                      {
+                      ?>
+                      <div class="alert alert-danger">
+                          <strong>Error!</strong>
+                          <?php echo $_SESSION['err_msg']; $_SESSION['err_msg'] = ""; ?>
+                      </div>
+                      <?php
+                      }
+                      ?>
                       <div class="form-group">
                           <label for="name">Name :</label>
                           <input type="text" name="name" id="name" class="form-control">
                       </div>
                       <div class="form-group">
+                          <label for="id">ID Card No :</label>
+                          <input type="text" name="id" id="id" class="form-control">
+                      </div>
+                      <div class="form-group">
                           <label for="email">Email :</label>
                           <input type="email" name="email" id="email" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label for="phone">Phone :</label>
+                          <input type="number" name="phone" id="phone" class="form-control">  
+                      </div>
+                      <div class="form-group">
+                          <label for="department">Department :</label>
+                          <select name="department" id="department" class="form-control">
+                              <option value="COSH">Computer Science</option>
+                              <option value="BCA">BCA</option>
+                              <option value="BENH">Bengali</option>
+                              <option value="ENGH">English</option>
+                              <option value="HISH">History</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="reg-no">Registration No :</label>
+                          <input type="text" name="reg_no" id="reg-no" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label for="reg-year">Registration Year (e.g. 2014-2015) :</label>
+                          <input type="text" name="reg_year" id="reg-year" class="form-control">
                       </div>
                       <div class="form-group">
                           <label for="password">New Password :</label>
@@ -41,6 +126,9 @@
                       <div class="form-group">
                           <label for="confirm-password">Confirm Password :</label>
                           <input type="password" name="confirm_password" id="confirm-password" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <input type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary">
                       </div>
                   </fieldset>
               </form>
