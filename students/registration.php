@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['err_msg'] = "";
 if(isset($_POST['submit'])) {
     include_once "./includes/dbconnection.php";
     
