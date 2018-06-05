@@ -66,7 +66,7 @@
               </form>
               <div class="options">
                   <p><a href="#">forgot password?</a></p>
-                  <p>New here?<a href="#"> Register</a></p>
+                  <p>New here?<a href="./registration.php"> Register</a></p>
               </div>
           </div>
           
