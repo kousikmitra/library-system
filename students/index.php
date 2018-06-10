@@ -19,7 +19,7 @@
                     $_SESSION['email'] = $row['s_email'];
                     $_SESSION['name'] = $row['s_name'];
                     $_SESSION['err_msg'] = $row['s_name'];
-                    echo "<script>alert('Logged in');</script>";
+                    header('location:./home.php');
                 } else {
                     echo "<script>alert('Login Failed !');</script>";
                     $_SESSION['err_msg'] = $conn->error;
