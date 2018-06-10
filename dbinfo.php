@@ -3,6 +3,5 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "lib";
-hahahhah
+$dbname = "library";
 ?>
