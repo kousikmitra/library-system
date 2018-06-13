@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
     $sdept = $_POST['department'];
     $sregno = $_POST['reg_no'];
     $sregyear = $_POST['reg_year'];
-    $spassword = $_POST['password'];
+    $spassword = md5($_POST['password']);
 
     if($sid != ""
         and $sname != ""
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
         and $spassword != ""
         ) {
 
-            $sql = "INSERT INTO student VALUES ('$sid', '$sname', '$semail', '$spassword', '$sphone',
+            $sql = "INSERT INTO student(s_id, s_name, s_email, s_password, s_phone, s_dept, s_regno, s_regyear) VALUES ('$sid', '$sname', '$semail', '$spassword', '$sphone',
                         '$sdept', '$sregno', '$sregyear')";
             
             if($conn->query($sql)){
@@ -63,7 +63,7 @@ if(isset($_POST['submit'])) {
         <div class="top-bar">
           <div id="title">
               <h1>
-                  Central Library
+                  PANSKURA BANAMALI COLLEGE
               </h1>
           </div>
           <div class="top-bar-right">
@@ -129,7 +129,7 @@ if(isset($_POST['submit'])) {
                           <input type="password" name="confirm_password" id="confirm-password" class="form-control">
                       </div>
                       <div class="form-group">
-                          <input type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary">
+                          <input type="submit" name="submit" value="Register" id="submit" class="btn btn-primary">
                       </div>
                   </fieldset>
               </form>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href=".\css\index.css">
     <link rel="stylesheet" href="..\vendor\bootstrap-4.0.0-dist\css\bootstrap.min.css">
     
-    <title>Central Library</title>
+    <title>Panskura Banamali College</title>
 </head>
 <body>
    <div class="main">
@@ -21,15 +21,17 @@
       <div class="top-bar">
           <div id="title">
               <h1>
-                  Central Library
-              </h1>
+                 Panskura Banamali College Central Library
+                  </h1>
+                  
           </div>
-          <div class="top-bar-right">
+          <div class="top-bar-left">
 
           </div>
       </div>
       <div class="slide-show">
-          <img src=".\images\slideshow.jpg" alt="Image">
+      <img src=".\images\IMG_20170601_083607.jpg" alt="Image">
+     
       </div>
       <div class="marquee">
           <marquee behavior="" direction="">This is an importatnt notification.      This is another notification.</marquee>
