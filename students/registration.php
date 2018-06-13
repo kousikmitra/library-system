@@ -28,6 +28,7 @@ if(isset($_POST['submit'])) {
             
             if($conn->query($sql)){
                 echo "<script>alert('Registration Completed !');</script>";
+                header('location:./index.php');
             } else {
                 echo "<script>alert('Registration Failed !;</script>";
                 $_SESSION['err_msg'] = $conn->error;

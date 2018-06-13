@@ -38,7 +38,7 @@ if(!isLoggedIn()){
                             <select name="searchby" id="search-by" class="form-control mr-sm-4">
                                 <option value="title">Title</option>
                                 <option value="author">Author</option>
-                                <option value="category">Subject</option>
+                                <option value="category">Category</option>
                                 <option value="callno">Call No.</option>
                             </select>
                             <input type="text" name="keyword" id="keyword" placeholder="Enter Search Keyword" class="form-control mr-sm-4" required>
