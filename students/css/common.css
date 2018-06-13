@@ -1,0 +1,56 @@
+.main{
+
+}
+
+.top-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title{
+    margin: 10px;
+    margin-left: 20px;
+}
+
+.title h5{
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.account{
+    margin: 5px;
+}
+.main-content{
+    background: #eeeeee;
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+}
+.side-menu{
+    margin: 30px;
+}
+
+.side-menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #575353;
+}
+
+.side-menu ul a{
+    display: block;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 250px;
+    color: white;
+    border-bottom: 0.5px white solid;
+}
+
+.content{
+    margin: 30px;
+    padding: 50px;
+}

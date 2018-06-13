@@ -4,5 +4,4 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "library";
-
 ?>
