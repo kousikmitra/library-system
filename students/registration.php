@@ -23,13 +23,8 @@ if(isset($_POST['submit'])) {
         and $spassword != ""
         ) {
 
-<<<<<<< HEAD
-            $sql = "INSERT INTO student(s_id, s_name, s_email, s_password, s_phone, s_dept, s_regno, s_regyear) VALUES ('$sid', '$sname', '$semail', '$spassword', '$sphone',
-=======
             $sql = "INSERT INTO student (s_id, s_name, s_email, s_password, s_phone, s_dept, s_regno, s_regyear) VALUES (
-                        '$sid', '$sname', '$semail', '$spassword', '$sphone',
->>>>>>> c3525c94ebd0f4b45f5c86db0adf48e64d330fcd
-                        '$sdept', '$sregno', '$sregyear')";
+                        '$sid', '$sname', '$semail', '$spassword', '$sphone', '$sdept', '$sregno', '$sregyear')";
             
             if($conn->query($sql)){
                 echo "<script>alert('Registration Completed !');</script>";
