@@ -21,9 +21,7 @@ if(!isLoggedIn()){
     <title><?php echo "Home | {$_SESSION['name']}"; ?></title>
 </head>
 <body>
-background image:url(".\images\IMG_20170601_083607.jpg");
-background-color:#cccccc;
-</body>
+
     <div class="main">
    
         <?php include "./includes/topbar.php"; ?>
