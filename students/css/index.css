@@ -19,6 +19,7 @@
 }
 #title{
     display: flex;
+    /* flex-direction: column; */
     margin: 10px 0px 0px 5%;
     
 }

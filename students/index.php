@@ -54,10 +54,10 @@
       <div class="top-bar">
           <div id="title">
               <h1>
-              <p> <b> Panskura Banamali College </b></p>
+              Panskura Banamali College 
               </h1>
               <h6>
-              <p>NAAC Aggrigade "A" Grade College</p>
+              NAAC Aggrigade "A" Grade College
                   </h6>
                   
           </div>
@@ -74,8 +74,14 @@
       </div>
       <div class="content">
           <div class="notification-left">
-            <p><b><u> Principal Desk</u></b></p>
+            <p><b><u> Principal Desk</u><br></p>
              <i>Welcome To Our College Central Library which helps you to find all kind of latest books that's helps all of you.Best of luck.</i>
+          </div>
+          <div class="notification-right">
+
+          hxsahhkdgs
+          asldhajkf
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptates expedita dolorem rerum mollitia laudantium doloribus distinctio saepe perferendis! Culpa ut incidunt aut possimus sunt similique consequatur doloremque, maxime minima.
           </div>
          
           <div class="login-div">
