@@ -54,8 +54,11 @@
       <div class="top-bar">
           <div id="title">
               <h1>
-                 Panskura Banamali College Central Library
-                  </h1>
+              <p> <b> Panskura Banamali College </b></p>
+              </h1>
+              <h6>
+              <p>NAAC Aggrigade "A" Grade College</p>
+                  </h6>
                   
           </div>
           <div class="top-bar-left">
@@ -71,17 +74,10 @@
       </div>
       <div class="content">
           <div class="notification-left">
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
+            <p><b><u> Principal Desk</u></b></p>
+             <i>Welcome To Our College Central Library which helps you to find all kind of latest books that's helps all of you.Best of luck.</i>
           </div>
-          <div class="notifiaction-right">
-          <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
-          </div>
+         
           <div class="login-div">
               <form action="index.php" method="post" class="login" id="login-form">
                   <fieldset>
