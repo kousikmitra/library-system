@@ -26,10 +26,11 @@
     background: #eeeeee;
     display: flex;
     flex-direction: row;
-    height: 600px;
+    height: auto;
 }
 .side-menu{
     margin: 30px;
+    margin-top: 100px;
 }
 
 .side-menu ul{

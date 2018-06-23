@@ -43,7 +43,7 @@ if(!isset($_GET['callno'])){
                     <div class="book-details">
                         <div class="upper-section">
                             <div class="book-img">
-                                <div><img src="./bookimg/book.jpg" alt="Book" width="150" height="200"></div>
+                                <div><img src="./bookimg/<?php echo $row['image']; ?>" alt="Book" width="150" height="200"></div>
                             </div>
                             <div class="book-info">
                                 <table class="table">
@@ -89,11 +89,12 @@ if(!isset($_GET['callno'])){
 
                         <div class="lower-section">
                             <h6>Related Books :</h6>
-                            <table>
+                            <table class="table">
                             <?php
                             while($row = $result->fetch_assoc()){
                             ?>
                             <tr>
+                                <td><img src="./bookimg/<?php echo $row['image']; ?>" alt=""></td>
                                 <td><a href="./book_details.php?callno=<?php echo $row['callno']; ?>"><?php echo $row['title']; ?></a></td>
                                 <td><?php echo $row['author']; ?></td>
                                 <td></td>
