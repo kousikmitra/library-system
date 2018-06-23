@@ -24,11 +24,11 @@ if(isset($_POST['submit'])) {
         ) {
 
             $sql = "INSERT INTO student (s_id, s_name, s_email, s_password, s_phone, s_dept, s_regno, s_regyear) VALUES (
-                        '$sid', '$sname', '$semail', '$spassword', '$sphone',
-                        '$sdept', '$sregno', '$sregyear')";
+                        '$sid', '$sname', '$semail', '$spassword', '$sphone', '$sdept', '$sregno', '$sregyear')";
             
             if($conn->query($sql)){
                 echo "<script>alert('Registration Completed !');</script>";
+                header('location:./index.php');
             } else {
                 echo "<script>alert('Registration Failed !;</script>";
                 $_SESSION['err_msg'] = $conn->error;
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])) {
         <div class="top-bar">
           <div id="title">
               <h1>
-                  Central Library
+                  PANSKURA BANAMALI COLLEGE
               </h1>
           </div>
           <div class="top-bar-right">

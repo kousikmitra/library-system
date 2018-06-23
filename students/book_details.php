@@ -41,7 +41,68 @@ if(!isset($_GET['callno'])){
                 </div>
                 <div class="main-menu">
                     <div class="book-details">
-                        
+                        <div class="upper-section">
+                            <div class="book-img">
+                                <div><img src="./bookimg/book.jpg" alt="Book" width="150" height="200"></div>
+                            </div>
+                            <div class="book-info">
+                                <table class="table">
+                                    <tr>
+                                        <td>Book Title</td>
+                                        <td><?php echo $row['title']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Author Name</td>
+                                        <td><?php echo $row['author']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Publisher</td>
+                                        <td><?php echo $row['publisher']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td><?php echo $row['description']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Call No.</td>
+                                        <td><?php echo $row['callno']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Availability</td>
+                                        <td><?php echo $row['total']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><a href="#" class="btn btn-primary">Request Book</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+<?php
+    $sql = "SELECT distinct title, author, books.callno as \"callno\", image FROM books, category, availability WHERE books.callno = availability.callno AND books.callno = category.callno AND
+             books.{$_SESSION['searchby']} like '%{$_SESSION['search_key']}%'";
+    $result = $conn->query($sql);
+    
+?>
+
+
+                        <div class="lower-section">
+                            <h6>Related Books :</h6>
+                            <table>
+                            <?php
+                            while($row = $result->fetch_assoc()){
+                            ?>
+                            <tr>
+                                <td><a href="./book_details.php?callno=<?php echo $row['callno']; ?>"><?php echo $row['title']; ?></a></td>
+                                <td><?php echo $row['author']; ?></td>
+                                <td></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

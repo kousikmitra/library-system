@@ -13,3 +13,32 @@
 .header h1{
     width: auto;
 }
+
+.book-details{
+    border:1px black solid;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.upper-section{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.book-img{
+    margin-left:10px;
+    display: flex;
+    align-items: center;
+}
+
+.book-info{
+    margin-left:10px;
+    width: 90%;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.book-info table tr td:first-child{
+    font-weight: bold;
+}

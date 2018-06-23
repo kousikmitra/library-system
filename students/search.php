@@ -38,10 +38,10 @@ if(!isLoggedIn()){
                             <select name="searchby" id="search-by" class="form-control mr-sm-4">
                                 <option value="title">Title</option>
                                 <option value="author">Author</option>
-                                <option value="category">Subject</option>
+                                <option value="category">Category</option>
                                 <option value="callno">Call No.</option>
                             </select>
-                            <input type="text" name="keyword" id="keyword" placeholder="Enter Search Keyword" class="form-control mr-sm-4" required>
+                            <input type="text" name="keyword" id="keyword" placeholder="Enter Search Keyword" value="<?php echo isset($_SESSION['search_key'])? $_SESSION['search_key'] : ""; ?>" class="form-control mr-sm-4" required>
                             <input type="submit" value="Search" name="search" class="btn btn-primary mr-sm-4">
                         </form>
                     </div>
@@ -53,6 +53,8 @@ if(!isLoggedIn()){
                     
                         $searchby = $_GET['searchby'];
                         $keyword = $_GET['keyword'];
+                        $_SESSION['search_key'] = $_GET['keyword'];
+                        $_SESSION['searchby'] = $_GET['searchby'];
                     
                         if($searchby === "title") {
                             $sql = "SELECT * FROM books, availability WHERE books.callno = availability.callno AND books.title like '%$keyword%'";

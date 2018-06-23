@@ -44,11 +44,16 @@
     <!-- <meta http-equiv="refresh" content="5"> -->
     <link rel="stylesheet" href=".\css\index.css">
     <link rel="stylesheet" href="..\vendor\bootstrap-4.0.0-dist\css\bootstrap.min.css">
+<<<<<<< HEAD
     <script src="..\vendor\bootstrap-4.0.0-dist\js\bootstrap.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <title>Central Library</title>
+=======
+    
+    <title>Panskura Banamali College</title>
+>>>>>>> 3e2184672dbdf0ed4173e54d3f7f131c47374b9b
 </head>
 <body>
    <div class="main">
@@ -57,10 +62,14 @@
       <div class="top-bar">
           <div id="title">
               <h1>
-                  Central Library
+              Panskura Banamali College 
               </h1>
+              <h6>
+              NAAC Aggrigade "A" Grade College
+                  </h6>
+                  
           </div>
-          <div class="top-bar-right">
+          <div class="top-bar-left">
 
           </div>
       </div>
@@ -97,17 +106,16 @@
       </div>
       <div class="content">
           <div class="notification-left">
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
+            <p><b><u> Principal Desk</u><br></p>
+             <i>Welcome To Our College Central Library which helps you to find all kind of latest books that's helps all of you.Best of luck.</i>
           </div>
-          <div class="notifiaction-right">
-          <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
-            <p>notification 1</p>
+          <div class="notification-right">
+
+          hxsahhkdgs
+          asldhajkf
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptates expedita dolorem rerum mollitia laudantium doloribus distinctio saepe perferendis! Culpa ut incidunt aut possimus sunt similique consequatur doloremque, maxime minima.
           </div>
+         
           <div class="login-div">
               <form action="index.php" method="post" class="login" id="login-form">
                   <fieldset>
