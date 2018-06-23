@@ -17,8 +17,7 @@ if(!isLoggedIn()){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href=".\css\common.css">
     <link rel="stylesheet" href=".\css\home.css">
-    <link rel="stylesheet" href="..\vendor\bootstrap-4.0.0-dist\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\vendor\fontawesome-free-5.0.13\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.min.css">
+    <?php include_once "./includes/bootstrap.php"; ?>
     <title><?php echo "Home | {$_SESSION['name']}"; ?></title>
 </head>
 <body>
@@ -48,6 +47,5 @@ if(!isLoggedIn()){
             </div>
         </div>
     </div>
-    <script src="..\vendor\bootstrap-4.0.0-dist\js\bootstrap.min.js"></script>
 </body>
 </html>
