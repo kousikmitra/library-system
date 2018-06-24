@@ -9,11 +9,11 @@
     background: #eeeeee;
     display: flex;
     flex-direction: row;
-    height: 600px;
+    height: 100vh;
 }
-.side-menu{
+/* .side-menu{
     margin: 30px;
-}
+} */
 
 .side-menu ul{
     list-style-type: none;

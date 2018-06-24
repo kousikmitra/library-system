@@ -26,7 +26,7 @@
     background: #eeeeee;
     display: flex;
     flex-direction: row;
-    height: auto;
+    min-height:100vh;
 }
 .side-menu{
     margin: 30px;

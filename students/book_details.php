@@ -84,7 +84,7 @@ if(isset($_POST['request'])){
                                         <td>
                                         <?php
                                         if($row['total'] > 0){
-                                            $sql = "SELECT id FROM requests WHERE s_id='{$_SESSION['id']}' AND callno='{$row['callno']}'";
+                                            $sql = "SELECT id FROM requests WHERE s_id='{$_SESSION['id']}' AND callno='{$row['callno']}' AND status='0'";
                                             $result = $conn->query($sql);
                                             if($result->num_rows > 0){
                                         ?>
