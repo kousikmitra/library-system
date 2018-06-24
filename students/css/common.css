@@ -51,6 +51,15 @@
     border-bottom: 0.5px white solid;
 }
 
+.side-menu ul li a:hover{
+    background: rgb(166, 213, 228);
+    color: rgb(34, 24, 71);
+    text-decoration: none;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .content{
     margin: 30px;
     padding: 50px;

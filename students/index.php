@@ -52,16 +52,14 @@
        
       <div class="top-bar">
           <div id="title">
-              <h1>
-                  Central Library
-              </h1>
+              <img src="http://librarypbc.org/wp-content/uploads/2016/01/logo.png" alt="Panskura Banamali College" height=150>
           </div>
           <div class="top-bar-right">
 
           </div>
       </div>
       <div class="slide-show">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -70,12 +68,24 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-1.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> A library is like an island in the middle of vast sea of ignorance, particularly if the library is very tall and surrounding area has been flooded. <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Lemony Snicket</strong>
+    </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="http://educationbengal.in/uploads/80881edubngl.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> Libraries are more important to the education system than the institutions such as schools, colleges and universities.  <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Rabindranath Tagore</strong>
+    </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-3.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> The only thing that you absolutely have to know is the location of the library. <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Albert Einstein</strong>
+    </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

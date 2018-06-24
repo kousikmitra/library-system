@@ -51,6 +51,7 @@ if(!isLoggedIn()){
                                 <td>Request Date</td>
                                 <td>Request Time</td>
                                 <td>Status</td>
+                                <td>Action</td>
                             </thead>
                     <?php
                     $srno = 0;
@@ -82,6 +83,21 @@ if(!isLoggedIn()){
                                 } else if($row['status'] == 3) {
                                 ?>
                                 <td><a link="#" style="color:red">Canceled By You</a></td>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if($row['status'] == 0){
+                                ?>
+                                <td><a href="./index.php" style="color:blue"><i class="fa fa-close"></i></a></td>
+                                <?php
+                                } else if($row['status'] == 1){
+                                ?>
+                                <td><a link="#" style="color:green"><i class="fa fa-check-circle"></i></a></td>
+                                <?php
+                                } else {
+                                ?>
+                                <td><a link="#" style="color:red"><i class="fa fa-exclamation-circle"></i></a></td>
                                 <?php
                                 }
                                 ?>

@@ -41,3 +41,7 @@
     width: 75vw;
 }
 
+thead td{
+    font-weight: bold;
+}
+
