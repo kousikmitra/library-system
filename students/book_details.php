@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "./includes/dbconnection.php";
 include_once "./includes/functions.php";
 if(!isLoggedIn()){
     header('location:./index.php');
@@ -8,7 +9,6 @@ if(!isLoggedIn()){
 if(!isset($_GET['callno'])){
     header('location:./search.php');
 } else {
-    include_once "./includes/dbconnection.php";
     $callno = $_GET['callno'];
     $sql = "SELECT * FROM books, category, availability WHERE books.callno = availability.callno AND books.callno = category.callno AND books.callno like '%$callno%'";
     $result = $conn->query($sql);
@@ -16,6 +16,15 @@ if(!isset($_GET['callno'])){
         $row = $result->fetch_assoc();
     }
 }
+
+if(isset($_POST['request'])){
+    
+    $sql = "INSERT INTO requests (s_id, callno, req_date, req_time) VALUES ('{$_SESSION['id']}', '{$_POST['callno']}', CURDATE(), CURTIME())";
+    if($conn->query($sql)){
+        echo "<script>alert('Book Request Send'); window.location = './book_details.php?callno={$_POST['callno']}';</script>";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +34,7 @@ if(!isset($_GET['callno'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href=".\css\common.css">
     <link rel="stylesheet" href=".\css\book_details.css">
-    <link rel="stylesheet" href="..\vendor\bootstrap-4.0.0-dist\css\bootstrap.min.css">
-    <link rel="stylesheet" href="..\vendor\fontawesome-free-5.0.13\fontawesome-free-5.0.13\web-fonts-with-css\css\fontawesome.min.css">
+    <?php include_once "./includes/bootstrap.php"; ?>
     <title><?php echo "{$row['title']}"; ?></title>
 </head>
 <body>
@@ -73,7 +81,30 @@ if(!isset($_GET['callno'])){
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><a href="#" class="btn btn-primary">Request Book</a></td>
+                                        <td>
+                                        <?php
+                                        if($row['total'] > 0){
+                                            $sql = "SELECT id FROM requests WHERE s_id='{$_SESSION['id']}' AND callno='{$row['callno']}'";
+                                            $result = $conn->query($sql);
+                                            if($result->num_rows > 0){
+                                        ?>
+                                        <button class="btn btn-secondary" style="background:#068593; color:white;">Already Requested</button>
+                                        <?php
+                                            } else {
+                                        ?>
+                                        <form action="" method="post">
+                                        <input type="hidden" id="callno" name="callno" value="<?php echo $row['callno']; ?>">
+                                        <input type="submit" value="Request Book" name="request" class="btn btn-primary">
+                                        </form>
+                                        <?php
+                                            }
+                                        } else {
+                                        ?>
+                                        <button class="btn btn-secondary">Not Available</button>
+                                        <?php
+                                        }
+                                        ?>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -109,6 +140,5 @@ if(!isset($_GET['callno'])){
             </div>
         </div>
     </div>
-    <script src="..\vendor\bootstrap-4.0.0-dist\js\bootstrap.min.js"></script>
 </body>
 </html>
