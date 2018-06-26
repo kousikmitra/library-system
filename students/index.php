@@ -53,12 +53,15 @@
        
       <div class="top-bar">
           <div id="title">
-              <h1>
-              Panskura Banamali College 
+         
+              <h3>
+              <u>Panskura Banamali College</u> 
+              <break>
+              <h5>
+              Central Library
+              </h5>
+              </break> 
               </h1>
-              <h6>
-              NAAC Aggrigade "A" Grade College
-                  </h6>
                   
           </div>
           <div class="top-bar-left">
@@ -66,7 +69,7 @@
           </div>
       </div>
       <div class="slide-show">
-      <img src=".\images\IMG_20170601_083607.jpg" alt="Image">
+      <img src=".\images\topbar.jpg" alt="Image">
      
       </div>
       <div class="marquee">
@@ -74,15 +77,14 @@
       </div>
       <div class="content">
           <div class="notification-left">
-            <p><b><u> Principal Desk</u><br></p>
-             <i>Welcome To Our College Central Library which helps you to find all kind of latest books that's helps all of you.Best of luck.</i>
-          </div>
+            <b><u> Principal Desk:</u></b>
+               <img src="./images/principal.jpg" alt="profile" height="100" width="100">
+    
+             <i>Welcome To Our College Central Library which helps all of you to find all kind of latest books.</i>
+</p>
+            </div>
           <div class="notification-right">
-
-          hxsahhkdgs
-          asldhajkf
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptates expedita dolorem rerum mollitia laudantium doloribus distinctio saepe perferendis! Culpa ut incidunt aut possimus sunt similique consequatur doloremque, maxime minima.
-          </div>
+         </div>
          
           <div class="login-div">
               <form action="index.php" method="post" class="login" id="login-form">
