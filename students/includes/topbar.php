@@ -4,5 +4,5 @@
             </div>
             <div class="account">
                 <img src="./images/profile.png" alt="profile" height="40" width="40">
-                <b><a href="./logout.php">Sign-out</a></b>
+                <b><a href="./logout.php"><?php echo $_SESSION['name']; ?></a></b>
             </div>

@@ -43,34 +43,71 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <meta http-equiv="refresh" content="5"> -->
     <link rel="stylesheet" href=".\css\index.css">
-    <link rel="stylesheet" href="..\vendor\bootstrap-4.0.0-dist\css\bootstrap.min.css">
-    
-    <title>Panskura Banamali College</title>
+    <?php include_once "./includes/bootstrap.php"; ?>
+    <title>Central Library</title>
 </head>
 <body>
    <div class="main">
        <div class="status-bar"></div>
        
       <div class="top-bar">
-          <div id="title">
-         
+          <div id="title">       
               <h3>
               <u>Panskura Banamali College</u> 
               <break>
               <h5>
               Central Library
               </h5>
-              </break> 
+              <br> 
               </h1>
-                  
+
+              <img src="http://librarypbc.org/wp-content/uploads/2016/01/logo.png" alt="Panskura Banamali College" height=150>
           </div>
-          <div class="top-bar-left">
+          <div class="top-bar-right">
 
           </div>
       </div>
       <div class="slide-show">
       <img src=".\images\topbar.jpg" alt="Image">
-     
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-1.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> A library is like an island in the middle of vast sea of ignorance, particularly if the library is very tall and surrounding area has been flooded. <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Lemony Snicket</strong>
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://educationbengal.in/uploads/80881edubngl.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> Libraries are more important to the education system than the institutions such as schools, colleges and universities.  <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Rabindranath Tagore</strong>
+    </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-3.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h2><i class="fa fa-quote-left"></i> The only thing that you absolutely have to know is the location of the library. <i class="fa fa-quote-right"></i></h2>
+        <strong style="float:right;">~ Albert Einstein</strong>
+    </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+>>>>>>> 4836867277ccdf4eab5e901a2d95f130c14cbdef
       </div>
       <div class="marquee">
           <marquee behavior="" direction="">This is an importatnt notification.      This is another notification.</marquee>
@@ -109,12 +146,12 @@
                       <input type="password" name="password" id="password" class="form-control">
                   </div>
                   <div class="form-group">
-                      <input type="submit" name="login" value="login" class="form-control btn btn-primary">
+                  <input type="submit" name="login" value="login" class="form-control btn btn-primary">
                   </div>
                   </fieldset>
               </form>
               <div class="options">
-                  <p><a href="#">forgot password?</a></p>
+                  <p><a href="./forgotpassword.php">forgot password?</a></p>
                   <p>New here?<a href="./registration.php"> Register</a></p>
               </div>
           </div>

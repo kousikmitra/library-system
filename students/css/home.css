@@ -2,23 +2,6 @@
 
 }
 
-.top-bar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.title{
-    margin: 10px;
-    margin-left: 20px;
-}
-
-.title h5{
-    font-weight: bold;
-    font-size: 26px;
-}
-
 .account{
     margin: 5px;
 }
@@ -26,11 +9,11 @@
     background: #eeeeee;
     display: flex;
     flex-direction: row;
-    height: 600px;
+    height: 100vh;
 }
-.side-menu{
+/* .side-menu{
     margin: 30px;
-}
+} */
 
 .side-menu ul{
     list-style-type: none;
