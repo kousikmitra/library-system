@@ -23,7 +23,8 @@
     margin: 5px;
 }
 .main-content{
-    background: #eeeeee;
+    background: url("../images/slide1.jpg");
+    background-size: cover;
     display: flex;
     flex-direction: row;
     min-height:100vh;

@@ -6,7 +6,13 @@
     margin: 5px;
 }
 .main-content{
-    background: #eeeeee;
+    background: url("../images/slide2.jpg");
+   
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    min-height:100vh;
+   /* background: #eeeeee;
     display: flex;
     flex-direction: row;
     height: 100vh;

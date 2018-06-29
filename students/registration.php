@@ -63,9 +63,7 @@ if(isset($_POST['submit'])) {
         <div class="status-bar"></div>
         <div class="top-bar">
           <div id="title">
-              <h1>
-                  PANSKURA BANAMALI COLLEGE
-              </h1>
+          <img src="./images/logo.png" alt="Panskura Banamali College" height=120>
           </div>
           <div class="top-bar-right">
 
@@ -88,6 +86,7 @@ if(isset($_POST['submit'])) {
                       }
                       ?>
                       <div class="form-group">
+                      *Fill all the field properly </br>
                           <label for="name">Name :</label>
                           <input type="text" name="name" id="name" class="form-control">
                       </div>
@@ -96,7 +95,7 @@ if(isset($_POST['submit'])) {
                           <input type="text" name="id" id="id" class="form-control">
                       </div>
                       <div class="form-group">
-                          <label for="email">Email :</label>
+                          <label for="email">Email(It's use your User Id.) :</label>
                           <input type="email" name="email" id="email" class="form-control">
                       </div>
                       <div class="form-group">

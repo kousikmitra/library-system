@@ -6,6 +6,13 @@ if(!isLoggedIn()){
     header('location:./index.php');
 }
 
+if(isset($_GET['cancel']) and
+    $_GET['cancel'] != "") {
+        $sql ="UPDATE requests SET status='3' WHERE id='{$_GET['cancel']}'";
+        if($conn->query($sql)){
+            echo "<script>alert('Succesfully Canceled'); window.location = './viewrequests.php';</script>";
+        }
+    }
 
 
 ?>
@@ -89,7 +96,7 @@ if(!isLoggedIn()){
                                 <?php
                                 if($row['status'] == 0){
                                 ?>
-                                <td><a href="./index.php" style="color:blue"><i class="fa fa-close"></i></a></td>
+                                <td><a href="./viewrequests.php?cancel=<?php echo "{$row['id']}"; ?>" style="color:blue"><i class="fa fa-close"></i></a></td>
                                 <?php
                                 } else if($row['status'] == 1){
                                 ?>

@@ -40,7 +40,7 @@ include_once "./includes/functions.php";
                         $flag = false;
                     }
                 } else {
-                    echo "<script>alert('Login Failed !');</script>";
+                    echo "<script>alert('Email doesn't Exist !');</script>";
                     $_SESSION['err_msg'] = $conn->error;
                 }
     
@@ -123,9 +123,7 @@ include_once "./includes/functions.php";
        
       <div class="top-bar">
           <div id="title">
-              <h1>
-                  Central Library
-              </h1>
+          <img src="./images/logo.png" alt="Panskura Banamali College" height=120>        
           </div>
           <div class="top-bar-right">
 
@@ -140,13 +138,13 @@ include_once "./includes/functions.php";
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-1.jpg" alt="First slide">
+      <img class="d-block w-100" src="./images/clg.jpg." alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="http://educationbengal.in/uploads/80881edubngl.jpg" alt="Second slide">
+      <img class="d-block w-100" src="./images/bg1.jpg." alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="http://panskurabanamalicollege.org/img/slide-3.jpg" alt="Third slide">
+      <img class="d-block w-100" src="./images/top1.jpg." alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -21,6 +21,9 @@ if(isset($_POST['request'])){
     
     $sql = "INSERT INTO requests (s_id, callno, req_date, req_time) VALUES ('{$_SESSION['id']}', '{$_POST['callno']}', CURDATE(), CURTIME())";
     if($conn->query($sql)){
+        $sql = "SELECT title FROM books WHERE callno='{$_POST['callno']}'";
+        $row = $conn->query($sql)->fetch_assoc();
+        sendRequestMail($_SESSION['email'], $row['title']);
         echo "<script>alert('Book Request Send'); window.location = './book_details.php?callno={$_POST['callno']}';</script>";
     }
 }
