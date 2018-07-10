@@ -69,6 +69,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gallery</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://ndl.iitkgp.ac.in/">NDL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://library.vidyasagar.ac.in/ereferences/OnlineNewsPaper.aspx">e-NEWS PAPER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://librarypbc.org/contact/">CONTACT</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -143,7 +152,7 @@
                 </div>
             </div>
             <div class="marquee">
-                <marquee behavior="" direction="">This is an importatnt notification. This is another notification.</marquee>
+                <marquee behavior="" direction="">Welcome To Our College Central Library. </marquee>
             </div>
             <div class="content">
                 <div class="notification-left">
@@ -156,7 +165,7 @@
                     </p>
                 </div>
                 <div class="notification-right">
-             
+             <p>Notice Board</p>
                 </div>
 
                 <div class="login-div">
@@ -196,9 +205,9 @@
                             <a href="./registration.php"> Register</a>
                         </p>
                         <u> Shift:</u></br>
-                Morning Shift :</br>
-                Day Shift:</br>
-                Evening Shift:</br>
+                Morning Shift :8.00-11.00</br>
+                Day Shift:11.00-4.00</br>
+                Evening Shift:3.00-6.00</br>
                     </div>
                 </div>
 

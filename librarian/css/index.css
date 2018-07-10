@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(60deg, rgb(75, 114, 221), rgb(26, 36, 124));
+}
+
+.login{
+    color: white;
+    width: 30%;
+    padding: 1% 2%;
+}
