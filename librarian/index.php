@@ -4,21 +4,19 @@ $_SESSION['err_msg'] = "";
     if(isset($_POST['login'])) {
         include_once "./includes/dbconnection.php";
         
-        $semail = $_POST['email'];
-        $spassword = md5($_POST['password']);
+        $userid = $_POST['userid'];
+        $password = $_POST['password'];
     
-        if($semail != ""
-            and $spassword != ""
+        if($userid != ""
+            and $password != ""
             ) {
     
-                $sql = "SELECT * FROM student WHERE s_email='$semail' AND s_password='$spassword' AND s_status='1'";
+                $sql = "SELECT * FROM librarian WHERE l_userid='$userid' AND l_password='$password'";
                 $result = $conn->query($sql);
                 if($result->num_rows == 1){
                     $row = $result->fetch_assoc();
-                    $_SESSION['id'] = $row['s_id'];
-                    $_SESSION['email'] = $row['s_email'];
-                    $_SESSION['name'] = $row['s_name'];
-                    $_SESSION['err_msg'] = $row['s_name'];
+                    $_SESSION['l_id'] = $row['l_userid'];
+                    $_SESSION['name'] = $row['l_name'];
                     header('location:./home.php');
                 } else {
                     echo "<script>alert('Login Failed !');</script>";
@@ -65,8 +63,8 @@ $_SESSION['err_msg'] = "";
                       }
                       ?>
                                 <div class="form-group">
-                                    <label for="email">Email /User Id:</label>
-                                    <input type="email" name="email" id="email" class="form-control">
+                                    <label for="userid">User Id:</label>
+                                    <input type="userid" name="userid" id="userid" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password :</label>
