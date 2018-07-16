@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2018 at 06:03 PM
+-- Generation Time: Jul 16, 2018 at 02:45 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -38,7 +38,8 @@ CREATE TABLE `availability` (
 --
 
 INSERT INTO `availability` (`callno`, `total`) VALUES
-('005.133 BAL/P', 0);
+('005.133 BAL/P', 4),
+('12444', 5);
 
 -- --------------------------------------------------------
 
@@ -52,6 +53,7 @@ CREATE TABLE `books` (
   `author` varchar(40) NOT NULL,
   `publisher` varchar(30) NOT NULL,
   `description` text NOT NULL,
+  `image` varchar(100) NOT NULL DEFAULT 'bookimage.jpg',
   `addedat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,8 +61,9 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`callno`, `title`, `author`, `publisher`, `description`, `addedat`) VALUES
-('005.133 BAL/P', 'Programming with Java', 'E. Balagurusamy', 'Tata', 'A java book for beginners', '2018-06-12 14:47:19');
+INSERT INTO `books` (`callno`, `title`, `author`, `publisher`, `description`, `image`, `addedat`) VALUES
+('005.133 BAL/P', 'Programming with Java', 'E. Balagurusamy', 'Tata', 'A java book for beginners', 'bookimage.jpg', '2018-06-12 14:47:19'),
+('12444', 'Java Starter', 'Schilbetatz', 'EEE', 'java Book for beginner', 'bookimage.jpg', '2018-06-23 14:33:36');
 
 -- --------------------------------------------------------
 
@@ -80,7 +83,67 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`callno`, `name`) VALUES
 ('005.133 BAL/P', 'Computer Science'),
 ('005.133 BAL/P', 'BCA'),
-('005.133 BAL/P', 'Programming');
+('005.133 BAL/P', 'Programming'),
+('12444', 'Programming'),
+('12444', 'Java');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `forgotpass`
+--
+
+CREATE TABLE `forgotpass` (
+  `email` varchar(50) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `otp` varchar(5) NOT NULL,
+  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `librarian`
+--
+
+CREATE TABLE `librarian` (
+  `l_id` int(11) NOT NULL,
+  `l_userid` varchar(15) NOT NULL,
+  `l_password` varchar(100) NOT NULL,
+  `l_name` varchar(30) NOT NULL,
+  `l_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `librarian`
+--
+
+INSERT INTO `librarian` (`l_id`, `l_userid`, `l_password`, `l_name`, `l_date`) VALUES
+(1, 'admin', 'admin', 'Admin', '2018-07-12 02:47:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL,
+  `s_id` varchar(15) NOT NULL,
+  `callno` varchar(15) NOT NULL,
+  `req_date` date NOT NULL,
+  `req_time` time NOT NULL,
+  `status` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `requests`
+--
+
+INSERT INTO `requests` (`id`, `s_id`, `callno`, `req_date`, `req_time`, `status`) VALUES
+(5, '14HCS0012', '12444', '2018-06-23', '22:50:24', 2),
+(6, '14HCS0012', '005.133 BAL/P', '2018-06-23', '23:28:51', 1),
+(7, '14HCS0012', '12444', '2018-06-24', '00:01:31', 0);
 
 -- --------------------------------------------------------
 
@@ -105,7 +168,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`s_id`, `s_name`, `s_email`, `s_password`, `s_phone`, `s_dept`, `s_regno`, `s_regyear`, `s_status`) VALUES
-('14HCS0012', 'Kousik Mitra', 'kousikmitra12@gmail.com', '1c67ee36c804535aaad79441c2f4cf65', '8145169168', 'COSH', '2', '2014-2015', '1');
+('14HCS0012', 'Kousik Mitra', 'kousikmitra12@gmail.com', '8b01bb02da6b4dc4873f124d679861a4', '8145169168', 'COSH', '2', '2014-2015', '1');
 
 --
 -- Indexes for dumped tables
@@ -124,12 +187,47 @@ ALTER TABLE `books`
   ADD PRIMARY KEY (`callno`);
 
 --
+-- Indexes for table `forgotpass`
+--
+ALTER TABLE `forgotpass`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `librarian`
+--
+ALTER TABLE `librarian`
+  ADD PRIMARY KEY (`l_userid`),
+  ADD UNIQUE KEY `l_id` (`l_id`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`s_id`),
   ADD UNIQUE KEY `s_email` (`s_email`),
   ADD UNIQUE KEY `s_phone` (`s_phone`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `librarian`
+--
+ALTER TABLE `librarian`
+  MODIFY `l_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
