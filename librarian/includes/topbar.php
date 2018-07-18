@@ -18,7 +18,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="./view-book-requests.php">View Book Requests</a>
-                            <a class="dropdown-item" href="#">Issue Book</a>
+                            <a class="dropdown-item" href="./issue-book.php">Issue Book</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Return Book</a>
                             <a class="dropdown-item" href="#">View Issued Books</a>
@@ -30,10 +30,10 @@
                             Manage Books
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Add Book</a>
-                            <a class="dropdown-item" href="#">Update Book</a>
+                            <a class="dropdown-item" href="./addbook.php">Add Book</a>
+                            <a class="dropdown-item" href="./updatebook.php">Update Book</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">View / Search Book</a>
+                            <a class="dropdown-item" href="./viewbooks.php">View / Search Book</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

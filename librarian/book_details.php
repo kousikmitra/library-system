@@ -35,8 +35,8 @@ if(isset($_POST['request'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href=".\css\common.css">
-    <link rel="stylesheet" href=".\css\book_details.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/book_details.css">
     <?php include_once "./includes/bootstrap.php"; ?>
     <title><?php echo "{$row['title']}"; ?></title>
 </head>
@@ -45,7 +45,6 @@ if(isset($_POST['request'])){
         <?php include "./includes/topbar.php"; ?>
         </div>
         <div class="main-content">
-            <?php include "./includes/sidebar.php"; ?>
             <div class="content">
                 <div class="header">
                     <h1>College Library Management System</h1>
@@ -83,32 +82,10 @@ if(isset($_POST['request'])){
                                         <td><?php echo $row['total']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
                                         <td>
-                                        <?php
-                                        if($row['total'] > 0){
-                                            $sql = "SELECT id FROM requests WHERE s_id='{$_SESSION['id']}' AND callno='{$row['callno']}' AND status='0'";
-                                            $result = $conn->query($sql);
-                                            if($result->num_rows > 0){
-                                        ?>
-                                        <button class="btn btn-secondary" style="background:#068593; color:white;">Already Requested</button>
-                                        <?php
-                                            } else {
-                                        ?>
-                                        <form action="" method="post">
-                                        <input type="hidden" id="callno" name="callno" value="<?php echo $row['callno']; ?>">
-                                        <input type="submit" value="Request Book" name="request" class="btn btn-primary">
-                                        </form>
-                                        <?php
-                                            }
-                                        } else {
-                                        ?>
-                                        <button class="btn btn-secondary">Not Available</button>
-                                        <?php
-                                        }
-                                        ?>
+                                            <a href="./updatebook.php?callno=<?php echo $row['callno']; ?>" class="btn btn-primary">Update Book</a>
                                         </td>
-                                    </tr>
+                                    </tr>                                    
                                 </table>
                             </div>
                         </div>

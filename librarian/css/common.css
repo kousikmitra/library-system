@@ -8,3 +8,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
+
+.content{
+    padding: 1% 2% 0% 2%;
+}

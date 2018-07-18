@@ -5,8 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 function isLoggedIn(){
-    if(isset($_SESSION['id'])) {
-        if($_SESSION['id'] != "") {
+    if(isset($_SESSION['l_id'])) {
+        if($_SESSION['l_id'] != "") {
             return true;
         }
     }
