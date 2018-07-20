@@ -7,40 +7,66 @@ if(!isLoggedIn()){
 }
 
 if(isset($_POST['addbook'])){
-    $target_dir = "../bookimg/";
-    $target_file = $target_dir . basename($_FILES["bookimage"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $check = getimagesize($_FILES["bookimage"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+    $callno = $_POST['callno'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $publisher = $_POST['publisher'];
+    $desc = $_POST['desc'];
+    $total = $_POST['total'];
+
+    if(!($_FILES['bookimage']['error'] > 0)){
+        $target_dir = "../bookimg/";
+        $image = $target_dir.$callno.".jpg";
+        $target_file = $target_dir . $callno.".jpg";
         $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-    if (file_exists($target_file)) {
-        unlink($target_file);
-    }
-    if ($_FILES["bookimage"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    } else {
-        if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["bookimage"]["name"]). " has been uploaded.";
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $check = getimagesize($_FILES["bookimage"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+        if (file_exists($target_file)) {
+            unlink($target_file);
+        }
+        if ($_FILES["bookimage"]["size"] > 500000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        } else {
+            if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["bookimage"]["name"]). " has been uploaded.";
+                $sql = "UPDATE books SET title='$title',author='$author',publisher='$publisher',
+                    description='$desc',image='$image',addedat=CURDATE() WHERE callno='$callno'";
+            
+                $conn->query($sql);
+
+                $sql = "UPDATE availability SET total='$total' WHERE callno='$callno'";
+                $conn->query($sql);
+
+
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
     }
+    } else {
+            $sql = "UPDATE books SET title='$title',author='$author',publisher='$publisher',
+                    description='$desc',addedat=CURDATE() WHERE callno='$callno'";
+            
+            $conn->query($sql);
 
+            $sql = "UPDATE availability SET total='$total' WHERE callno='$callno'";
+            $conn->query($sql);
+    }
 }
 
 ?>

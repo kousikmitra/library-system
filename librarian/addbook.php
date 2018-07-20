@@ -7,8 +7,17 @@ if(!isLoggedIn()){
 }
 
 if(isset($_POST['addbook'])){
+    $callno = $_POST['callno'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $publisher = $_POST['publisher'];
+    $desc = $_POST['desc'];
+    $total = $_POST['total'];
+
+
     $target_dir = "../bookimg/";
-    $target_file = $target_dir . basename($_FILES["bookimage"]["name"]);
+    $image = $target_dir.$callno.".jpg";
+    $target_file = $target_dir . $callno.".jpg";
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     $check = getimagesize($_FILES["bookimage"]["tmp_name"]);
@@ -36,6 +45,15 @@ if(isset($_POST['addbook'])){
     } else {
         if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["bookimage"]["name"]). " has been uploaded.";
+            $sql = "INSERT INTO books(callno, title, author, publisher, description, image, addedat)
+                     VALUES ('$callno','$title','$author','$publisher','$desc','$image',CURDATE())";
+            
+            $conn->query($sql);
+
+            $sql = "INSERT INTO availability(callno, total) VALUES ('$callno', '$total')";
+            $conn->query($sql);
+
+
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -82,7 +100,7 @@ if(isset($_POST['addbook'])){
                     <table class="table">
                         <tr>
                             <td><label for="callno">Call No.</label></td>
-                            <td><input class="form-control" type="text" name="calno" id="callno"></td>
+                            <td><input class="form-control" type="text" name="callno" id="callno"></td>
                         </tr>
                         <tr>
                             <td><label for="title">Title of Book</label></td>
@@ -103,6 +121,10 @@ if(isset($_POST['addbook'])){
                         <tr>
                             <td><label for="bookimage">Image</label></td>
                             <td><input class="form-control" type="file" name="bookimage" id="bookimage"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="availability">Availability</label></td>
+                            <td><input class="form-control" type="text" name="total" id="total"></td>
                         </tr>
                         <tr>
                             <td></td>

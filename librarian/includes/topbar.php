@@ -42,8 +42,8 @@
                            Manage Students
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">View Students for Approval</a>
-                            <a class="dropdown-item" href="#">Find Student</a>
+                            <a class="dropdown-item" href="./view-students-for-approval.php">View Students for Approval</a>
+                            <a class="dropdown-item" href="find-students.php">Find Student</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">View Active Students</a>
                         </div>
