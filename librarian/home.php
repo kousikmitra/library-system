@@ -1,3 +1,13 @@
+<?php
+session_start();
+include_once "./includes/functions.php";
+include_once "./includes/dbconnection.php";
+if(!isLoggedIn()){
+    header('location:./index.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

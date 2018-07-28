@@ -7,7 +7,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" a href="./index.php">Home</a>
+                        <a class="nav-link" a href="./home.php">Home</a>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
