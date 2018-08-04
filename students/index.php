@@ -108,7 +108,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="./images/slide.jpg" alt="First slide">
+                            <img class="d-block w-100" src="./images/3rd.jpg" alt="First slide">
                             
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="./images/slide1.jpg" alt="Second slide">
+                            <img class="d-block w-100" src="./images/1st.jpg" alt="Second slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>
                                     <i class="fa fa-quote-left"></i> Libraries are more important to the education system than the institutions such
@@ -204,10 +204,7 @@
                         <p>New here?
                             <a href="./registration.php"> Register</a>
                         </p>
-                        <u> Shift:</u></br>
-                Morning Shift :8.00-11.00</br>
-                Day Shift:11.00-4.00</br>
-                Evening Shift:3.00-6.00</br>
+                       
                     </div>
                 </div>
 

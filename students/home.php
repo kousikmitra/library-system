@@ -34,15 +34,7 @@ if(!isLoggedIn()){
                     <h1>College Library Management System</h1>
                 </div>
                 <div class="main-menu">
-                    <div class="item1">
-                        <h5><a href="#">Find Books</a></h5>
-                    </div>
-                    <div class="item2">
-                    <h5><a href="#">Find Books</a></h5>
-                    </div>
-                    <div class="item3">
-                    <h5><a href="#">Find Books</a></h5>
-                    </div>
+                 
                 </div>
             </div>
         </div>
