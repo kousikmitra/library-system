@@ -25,7 +25,6 @@ if(!isLoggedIn()){
     <div class="main">
         <?php include "./includes/topbar.php"; ?>
         <div class="main-content">
-
         </div>
     </div>
 </body>

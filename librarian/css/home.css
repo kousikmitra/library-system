@@ -1,5 +1,19 @@
-.main-content{
+.main{
     
+   
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+}
+
+
+
+
+
+.main-content{
+    background: url("../images/front.jpg");
     border: 1px black solid;
     padding: 1% 2%;
+    min-height: 90vh;
 }
