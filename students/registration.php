@@ -60,7 +60,11 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
     <div class="main">
-        <div class="status-bar"></div>
+        <div class="status-bar">
+        <div class="marquee">
+                <marquee behavior="" direction="">Welcome To Our College Central Library. </marquee>
+            </div>
+        </div>
         <div class="top-bar">
           <div id="title">
           <img src="./images/logo.png" alt="Panskura Banamali College" height=120>

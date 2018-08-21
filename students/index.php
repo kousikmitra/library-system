@@ -55,7 +55,7 @@
 
             <div class="top-bar">
                 <div id="title">
-                    <img src="./images/logo.png" alt="Panskura Banamali College" height=120>
+                    <img src="./images/logo.jpg" alt="Panskura Banamali College" height=120>
                 </div>
                 <div class="top-bar-right">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -156,16 +156,22 @@
             </div>
             <div class="content">
                 <div class="notification-left">
-                    <p><b>
-                        <u> Principal Desk:</u>
-                    </b></p>
-                    <img src="./images/principal.jpg" alt="profile" height="100" width="100">
-
-                    <p><i>Welcome To Our College Central Library which is more than 54 years old and comprised of many old books whose valuation is not possible.And that helps all of you to find all your books.</i>
+                    
+                    <p><i>Welcome To Our College Central Library which is more comprised of many old books whose valuation is not possible.And that helps all of you to find all your books.</i>
                     </p>
                 </div>
                 <div class="notification-right">
-             <p>Notice Board</p>
+             <center><b>Notice Board</b></center>
+             <hr>
+             <marquee behavior="" direction="up" style="color:blue;">
+             <ul>
+             <li><p>BCA final semester exam routine published</p></li>
+             <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis consequuntur alias provident odit accusamus quisquam!</p></li>
+             <li><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, reiciendis?</p></li>
+             <li><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vel voluptates debitis quia delectus harum.</p></li>
+             <li><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio minima velit saepe est consequatur!</p></li>
+             </ul>
+             </marquee>
                 </div>
 
                 <div class="login-div">

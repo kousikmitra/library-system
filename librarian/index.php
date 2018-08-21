@@ -49,7 +49,7 @@ $_SESSION['err_msg'] = "";
             <div class="login">
                 <form action="index.php" method="post" id="login-form">
                     <fieldset>
-                        <legend>Login</legend>
+                        <legend>Admin Login</legend>
                         <?php
                       if($_SESSION['err_msg'] != "")
                       {

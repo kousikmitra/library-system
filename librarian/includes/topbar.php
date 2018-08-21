@@ -1,6 +1,6 @@
 <div class="top-bar">
                 <div id="title">
-                    <img src="./images/logo.png" alt="Panskura Banamali College" height=100>
+                    <img src="./images/logo.jpg" alt=" College Central Library " height=100>
                 </div>
                 <div class="top-bar-right">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
