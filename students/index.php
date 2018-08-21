@@ -166,10 +166,8 @@
              <marquee behavior="" direction="up" style="color:blue;">
              <ul>
              <li><p>BCA final semester exam routine published</p></li>
-             <li><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis consequuntur alias provident odit accusamus quisquam!</p></li>
-             <li><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, reiciendis?</p></li>
-             <li><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vel voluptates debitis quia delectus harum.</p></li>
-             <li><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint optio minima velit saepe est consequatur!</p></li>
+             <li><p>A workshop will held on 24.08.18 about Cyber crime,intersted candidates contact with BCA Department</p></li>
+             <li><p>New latest journals arrive</p></li>
              </ul>
              </marquee>
                 </div>

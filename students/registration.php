@@ -67,7 +67,7 @@ if(isset($_POST['submit'])) {
         </div>
         <div class="top-bar">
           <div id="title">
-          <img src="./images/logo.png" alt="Panskura Banamali College" height=120>
+          <img src="./images/logo.jpg" alt="Panskura Banamali College" height=120>
           </div>
           <div class="top-bar-right">
 
