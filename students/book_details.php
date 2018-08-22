@@ -54,7 +54,7 @@ if(isset($_POST['request'])){
                     <div class="book-details">
                         <div class="upper-section">
                             <div class="book-img">
-                                <div><img src="../bookimg/<?php echo $row['image']; ?>" alt="Book" width="150" height="200"></div>
+                                <div><img src="<?php echo $row['image']; ?>" alt="Book" width="150" height="200"></div>
                             </div>
                             <div class="book-info">
                                 <table class="table">
