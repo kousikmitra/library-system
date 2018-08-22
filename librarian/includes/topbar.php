@@ -20,8 +20,8 @@
                             <a class="dropdown-item" href="./view-book-requests.php">View Book Requests</a>
                             <a class="dropdown-item" href="./issue-book.php">Issue Book</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Return Book</a>
-                            <a class="dropdown-item" href="#">View Issued Books</a>
+                            <a class="dropdown-item" href="./return-book.php">Return Book</a>
+                            <a class="dropdown-item" href="./view-issued-books.php">View Issued Books</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
