@@ -31,7 +31,7 @@ if(isset($_POST['addbook'])){
     if (file_exists($target_file)) {
         unlink($target_file);
     }
-    if ($_FILES["bookimage"]["size"] > 500000) {
+    if ($_FILES["bookimage"]["size"] > 5000000) {
         echo "Sorry, your file is too large.";
         $uploadOk = 0;
     }
