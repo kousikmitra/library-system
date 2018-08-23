@@ -5,6 +5,25 @@ include_once "./includes/dbconnection.php";
 if(!isLoggedIn()){
     header('location:./index.php');
 }
+
+if(isset($_GET['s_id']) and isset($_GET['return'])){
+    $accno = $_GET['return'];
+
+    $sql = "SELECT * FROM issue WHERE acc_no='$accno'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        $sql = "INSERT INTO return_books(req_id, s_id, callno, acc_no, issue_date, returned_date)
+                 VALUES ('{$row['req_id']}','{$row['s_id']}','{$row['callno']}','{$row['acc_no']}','{$row['issue_date']}',CURDATE())";
+        if($conn->query($sql)){
+            $sql = "DELETE FROM issue WHERE acc_no='{$row['acc_no']}'";
+            if($conn->query($sql)){
+                echo "<script>alert('Return Successful!');</script>";
+            }
+        }
+    }
+}
+
 ?>
 
 
@@ -41,7 +60,7 @@ if(!isLoggedIn()){
                 <div class="data">
                     <?php
                    
-                   $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue WHERE s_id='{$_GET['s_id']}' ORDER BY req_date, req_time";
+                   $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue WHERE s_id='{$_GET['s_id']}' ORDER BY issue_date, issue_time";
                    if(isset($_GET['search'])){
                     $searchby = $_GET['searchby'];
                     $keyword = $_GET['keyword'];
@@ -50,11 +69,11 @@ if(!isLoggedIn()){
                 
                     if($searchby === "name") {
                         /************************ */
-                        $sql = "SELECT id, requests.s_id AS \"s_id\", requests.callno AS \"callno\", title, author, DATE_FORMAT(req_date,'%d %b %Y') AS \"req_date\", req_time, status FROM requests, books, student WHERE requests.callno=books.callno AND requests.s_id=student.s_id AND student.s_name like '%$keyword%' ORDER BY req_date, req_time";
+                        $sql = "SELECT id, issue.s_id AS \"s_id\", issue.callno AS \"callno\", title, author, DATE_FORMAT(issue_date,'%d %b %Y') AS \"issue_date\", issue_time, status FROM issue, books, student WHERE issue.callno=books.callno AND issue.s_id=student.s_id AND student.s_name like '%$keyword%' ORDER BY issue_date, issue_time";
                     } elseif($searchby === "student_id") {
-                        $sql = "SELECT id, s_id, requests.callno AS \"callno\", title, author, DATE_FORMAT(req_date,'%d %b %Y') AS \"req_date\", req_time, status FROM requests, books WHERE requests.callno=books.callno AND requests.s_id like '%$keyword%' ORDER BY req_date, req_time";
+                        $sql = "SELECT id, s_id, issue.callno AS \"callno\", title, author, DATE_FORMAT(issue_date,'%d %b %Y') AS \"issue_date\", issue_time, status FROM issue, books WHERE issue.callno=books.callno AND issue.s_id like '%$keyword%' ORDER BY issue_date, issue_time";
                     } else {
-                        $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY req_date, req_time";
+                        $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY issue_date, issue_time";
                     }
                 }
                    if($result = $conn->query($sql)){
@@ -70,12 +89,12 @@ if(!isLoggedIn()){
                                 <td>Issue Date</td>
                                 <td>Issue Time</td>
                                 <td>Return Date</td>
+                                <td>Action</td>
                             </thead>
                             <?php
                     $srno = 0;
                     while($row = $result->fetch_assoc()) {
                         $srno++;
-                        if($row['status'] == 0){
                     ?>
                                 <tr>
                                     <td>
@@ -104,13 +123,11 @@ if(!isLoggedIn()){
                                     <td>
                                         <?php echo "{$row['return_date']}"; ?>
                                     </td>
-                                    
-                                        <td>
-                                            <a link="#" style="color:blue">Active</a>
-                                        </td>
+                                    <td>
+                                        <a href="./return-book-sid.php?s_id=<?php echo "{$row['s_id']}"; ?>&return=<?php echo "{$row['acc_no']}"; ?>"><i class="fa fa-undo"></i></a>
+                                    </td>
                                 </tr>
                                 <?php
-                        }
                     }
                 }
                     ?>

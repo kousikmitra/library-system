@@ -48,7 +48,7 @@ if(isset($_GET['cancel']) and
                 <div class="data">
                     <?php
                    
-                   $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY req_date, req_time";
+                   $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY issue_date, issue_time";
                    if(isset($_GET['search'])){
                     $searchby = $_GET['searchby'];
                     $keyword = $_GET['keyword'];
@@ -57,11 +57,11 @@ if(isset($_GET['cancel']) and
                 
                     if($searchby === "name") {
                         /************************ */
-                        $sql = "SELECT id, requests.s_id AS \"s_id\", requests.callno AS \"callno\", title, author, DATE_FORMAT(req_date,'%d %b %Y') AS \"req_date\", req_time, status FROM requests, books, student WHERE requests.callno=books.callno AND requests.s_id=student.s_id AND student.s_name like '%$keyword%' ORDER BY req_date, req_time";
+                        $sql = "SELECT id, issue.s_id AS \"s_id\", issue.callno AS \"callno\", title, author, DATE_FORMAT(issue_date,'%d %b %Y') AS \"issue_date\", issue_time FROM issue, books, student WHERE issue.callno=books.callno AND issue.s_id=student.s_id AND student.s_name like '%$keyword%' ORDER BY issue_date, issue_time";
                     } elseif($searchby === "student_id") {
-                        $sql = "SELECT id, s_id, requests.callno AS \"callno\", title, author, DATE_FORMAT(req_date,'%d %b %Y') AS \"req_date\", req_time, status FROM requests, books WHERE requests.callno=books.callno AND requests.s_id like '%$keyword%' ORDER BY req_date, req_time";
+                        $sql = "SELECT id, s_id, issue.callno AS \"callno\", title, author, DATE_FORMAT(issue_date,'%d %b %Y') AS \"issue_date\", issue_time FROM issue, books WHERE issue.callno=books.callno AND issue.s_id like '%$keyword%' ORDER BY issue_date, issue_time";
                     } else {
-                        $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY req_date, req_time";
+                        $sql = "SELECT id, req_id, s_id, callno, acc_no, issue_date, issue_time, return_date FROM issue ORDER BY issue_date, issue_time";
                     }
                 }
                    if($result = $conn->query($sql)){
@@ -82,7 +82,6 @@ if(isset($_GET['cancel']) and
                     $srno = 0;
                     while($row = $result->fetch_assoc()) {
                         $srno++;
-                        if($row['status'] == 0){
                     ?>
                                 <tr>
                                     <td>
@@ -111,13 +110,8 @@ if(isset($_GET['cancel']) and
                                     <td>
                                         <?php echo "{$row['return_date']}"; ?>
                                     </td>
-                                    
-                                        <td>
-                                            <a link="#" style="color:blue">Active</a>
-                                        </td>
                                 </tr>
                                 <?php
-                        }
                     }
                 }
                     ?>

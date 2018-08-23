@@ -12,51 +12,72 @@ if(isset($_POST['addbook'])){
     $author = $_POST['author'];
     $publisher = $_POST['publisher'];
     $desc = $_POST['desc'];
+    $category = $_POST['category'];
     $total = $_POST['total'];
-
-
     $target_dir = "../bookimg/";
-    $image = $target_dir.$callno.".jpg";
-    $target_file = $target_dir . $callno.".jpg";
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $check = getimagesize($_FILES["bookimage"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+    $image = $target_dir."bookimage.jpg";
+    if(!($_FILES['bookimage']['error'] > 0)){
+        $target_dir = "../bookimg/";
+        $image = $target_dir.$callno.".jpg";
+        $target_file = $target_dir . $callno.".jpg";
         $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-    if (file_exists($target_file)) {
-        unlink($target_file);
-    }
-    if ($_FILES["bookimage"]["size"] > 5000000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-    } else {
-        if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["bookimage"]["name"]). " has been uploaded.";
-            $sql = "INSERT INTO books(callno, title, author, publisher, description, image, addedat)
-                     VALUES ('$callno','$title','$author','$publisher','$desc','$image',CURDATE())";
-            
-            $conn->query($sql);
-
-            $sql = "INSERT INTO availability(callno, total) VALUES ('$callno', '$total')";
-            $conn->query($sql);
-
-
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $check = getimagesize($_FILES["bookimage"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "File is not an image.";
+            $uploadOk = 0;
         }
+        if (file_exists($target_file)) {
+            unlink($target_file);
+        }
+        if ($_FILES["bookimage"]["size"] > 5000000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        } else {
+            if (move_uploaded_file($_FILES["bookimage"]["tmp_name"], $target_file)) {
+                echo "The file ". basename( $_FILES["bookimage"]["name"]). " has been uploaded.";
+                $sql = "INSERT INTO books(callno, title, author, publisher, description, image, addedat)
+                        VALUES ('$callno','$title','$author','$publisher','$desc','$image',CURDATE())";
+                
+                $conn->query($sql);
+
+                $sql = "INSERT INTO availability(callno, total) VALUES ('$callno', '$total')";
+                $conn->query($sql);
+
+                $sql = "INSERT INTO category(callno, name) VALUES ('$callno', '$category')";
+                $conn->query($sql);
+
+                echo "<script>alert('Book Added!'); window.location = './addbook.php';</script>";
+
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+    }
+    }else{
+                $sql = "INSERT INTO books(callno, title, author, publisher, description, image, addedat)
+                        VALUES ('$callno','$title','$author','$publisher','$desc', '$image', CURDATE())";
+                
+                $conn->query($sql);
+
+                $sql = "INSERT INTO availability(callno, total) VALUES ('$callno', '$total')";
+                $conn->query($sql);
+
+                $sql = "INSERT INTO category(callno, name) VALUES ('$callno', '$category')";
+                $conn->query($sql);
+
+                echo "<script>alert('Book Added!'); window.location = './addbook.php';</script>";
+   
     }
 
 }
@@ -117,6 +138,10 @@ if(isset($_POST['addbook'])){
                         <tr>
                             <td><label for="desc">Description</label></td>
                             <td><textarea class="form-control" name="desc" id="desc"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="category">Book Category</label></td>
+                            <td><input class="form-control" type="text" name="category" id="category"></td>
                         </tr>
                         <tr>
                             <td><label for="bookimage">Image</label></td>

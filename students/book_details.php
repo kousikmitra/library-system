@@ -128,7 +128,7 @@ if(isset($_POST['request'])){
                             while($row = $result->fetch_assoc()){
                             ?>
                             <tr>
-                                <td><img src="./bookimg/<?php echo $row['image']; ?>" alt="" height=50 width=50></td>
+                                <td><img src="<?php echo $row['image']; ?>" alt="" height=50 width=50></td>
                                 <td><a href="./book_details.php?callno=<?php echo $row['callno']; ?>"><?php echo $row['title']; ?></a></td>
                                 <td><?php echo $row['author']; ?></td>
                                 <td></td>

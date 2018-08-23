@@ -12,6 +12,7 @@ if(isset($_POST['addbook'])){
     $author = $_POST['author'];
     $publisher = $_POST['publisher'];
     $desc = $_POST['desc'];
+    $category = $_POST['category'];
     $total = $_POST['total'];
 
     if(!($_FILES['bookimage']['error'] > 0)){
@@ -53,6 +54,11 @@ if(isset($_POST['addbook'])){
                 $sql = "UPDATE availability SET total='$total' WHERE callno='$callno'";
                 $conn->query($sql);
 
+                $sql = "UPDATE category SET name='$category' WHERE callno='$callno'";
+                $conn->query($sql);
+
+                echo "<script>alert('Book Details Updated'); window.history.go(-2);</script>";
+
 
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -66,6 +72,11 @@ if(isset($_POST['addbook'])){
 
             $sql = "UPDATE availability SET total='$total' WHERE callno='$callno'";
             $conn->query($sql);
+
+            $sql = "UPDATE category SET name='$category' WHERE callno='$callno'";
+            $conn->query($sql);
+
+            echo "<script>alert('Book Details Updated'); window.history.go(-2);</script>";
     }
 }
 
@@ -82,7 +93,7 @@ if(isset($_POST['addbook'])){
         <link rel="stylesheet" href="./css/common.css">
         <link rel="stylesheet" href="./css/view-book-requests.css">
         <?php include_once "./includes/bootstrap.php"; ?>
-        <title>Add New Book</title>
+        <title>Update Book Details</title>
         <style>
             .content {
                 display: flex;
@@ -107,9 +118,9 @@ if(isset($_POST['addbook'])){
                     <?php
                     if(isset($_GET['callno'])){
 
-                        $sql = "SELECT books.callno as \"callno\", title, author, publisher, description, image, total  FROM books, availability WHERE books.callno = availability.callno AND books.callno='{$_GET['callno']}'";
+                        $sql = "SELECT books.callno as \"callno\", title, author, publisher, description, image, total, name  FROM books, availability, category WHERE books.callno = availability.callno AND books.callno = category.callno AND books.callno='{$_GET['callno']}'";
                         $result = $conn->query($sql);
-                        if($result->num_rows == 1){
+                        if($result->num_rows > 0){
                             $row = $result->fetch_assoc();
                 ?>
                         <form action="" method="post" enctype="multipart/form-data">
@@ -154,6 +165,10 @@ if(isset($_POST['addbook'])){
                                         <textarea class="form-control" name="desc" id="desc"><?php echo $row['description']; ?></textarea>
                                     </td>
                                 </tr>
+                                <tr>
+                            <td><label for="category">Book Category</label></td>
+                            <td><input class="form-control" type="text" name="category" id="category" value="<?php echo $row['name']; ?>"></td>
+                        </tr>
                                 <tr>
                                     <td>
                                         <label for="bookimage">Image</label>

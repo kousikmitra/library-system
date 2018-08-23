@@ -45,7 +45,7 @@
                             <a class="dropdown-item" href="./view-students-for-approval.php">View Students for Approval</a>
                             <a class="dropdown-item" href="find-students.php">Find Student</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">View Active Students</a>
+                            <a class="dropdown-item" href="./find-students.php">View Active Students</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
