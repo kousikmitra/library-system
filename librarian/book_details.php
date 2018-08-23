@@ -53,7 +53,7 @@ if(isset($_POST['request'])){
                     <div class="book-details">
                         <div class="upper-section">
                             <div class="book-img">
-                                <div><img src="<?php echo $row['image']; ?>" alt="Book" width="150" height="200"></div>
+                                <div><img src="../bookimg/<?php echo $row['image']; ?>" alt="Book" width="150" height="200"></div>
                             </div>
                             <div class="book-info">
                                 <table class="table">
@@ -105,7 +105,7 @@ if(isset($_POST['request'])){
                             while($row = $result->fetch_assoc()){
                             ?>
                             <tr>
-                                <td><img src="<?php echo $row['image']; ?>" alt="" height=50 width=50></td>
+                                <td><img src="../bookimg/<?php echo $row['image']; ?>" alt="" height=50 width=50></td>
                                 <td><a href="./book_details.php?callno=<?php echo $row['callno']; ?>"><?php echo $row['title']; ?></a></td>
                                 <td><?php echo $row['author']; ?></td>
                                 <td></td>
